@@ -27,7 +27,7 @@ import EditDriver from "./pages/drivers/edit";
 import OrganizationList from "./pages/organization";
 import CreateOrganization from "./pages/organization/create";
 
-const clerkPublishableKey = import.meta.env.VITE_CLERK_FRONTEND_API;
+const clerkPublishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!clerkPublishableKey) {
     throw new Error("Clerk publishable key is not provided!");

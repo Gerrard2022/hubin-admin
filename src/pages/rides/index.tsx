@@ -57,16 +57,6 @@ const Rides = () => {
                         )
                     }
                 />
-                <Table.Column
-                    title="Actions"
-                    fixed="right"
-                    render={(record) => (
-                        <Space>
-                            <EditButton hideText size="small" recordItemId={record.ride_id} />
-                            <DeleteButton hideText size="small" recordItemId={record.ride_id} />
-                        </Space>
-                    )}
-                />
             </Table>
         </List>
     );
