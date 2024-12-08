@@ -2,7 +2,6 @@ import { DollarOutlined } from "@ant-design/icons";
 import { Area, AreaConfig } from "@ant-design/plots";
 import { Card } from "antd";
 import { useList } from "@refinedev/core";
-import React from "react";
 import { Text } from "../text";
 
 export const RideChart = () => {
@@ -86,11 +85,14 @@ export const RideChart = () => {
             tickCount: 4,
             label: {
                 formatter: (v: string) => {
-                    if (v > 1000) {
-                        return `$${Number(v) / 1000}k`;
+                    const value = parseFloat(v); 
+                    if (!isNaN(value) && value > 1000) { 
+                        return `$${value / 1000}k`;
                     }
                     return v;
                 },
+                
+                
             },
         },
         tooltip: {

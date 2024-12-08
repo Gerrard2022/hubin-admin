@@ -8,7 +8,7 @@ import routerBindings, {
     UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
 import { dataProvider, liveProvider } from "@refinedev/supabase";
-import { App as AntdApp } from "antd";
+import { App as AntdApp, Spin } from "antd"; // Import Spin here
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import { supabaseClient } from "./utility";
 import {
@@ -49,12 +49,25 @@ const CustomTitle = ({ collapsed }: { collapsed: boolean }) => (
     </div>
 );
 
-// ProtectedRoute: Check if the user is authenticated before accessing protected pages
+// Loader Component
+const Loader = () => (
+      <div
+      style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh", 
+      }}
+    >
+      <Spin size="large" tip="Loading..." />
+    </div>
+);
+
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
     const { isSignedIn, isLoaded } = useAuth();
 
     if (!isLoaded) {
-        return <div>Loading...</div>;
+        return <Loader />;
     }
 
     if (!isSignedIn) {
@@ -93,6 +106,7 @@ function App() {
                                     projectId: "PtHBD5-HRaKNY-ZLhj8g",
                                 }}
                                 Title={CustomTitle} // Use the custom title here
+                                ReadyPage={Loader} // Global loader during setup
                             >
                                 <Routes>
                                     <Route path="/login" element={<SignIn />} />
