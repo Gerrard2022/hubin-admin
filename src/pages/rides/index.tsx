@@ -10,6 +10,9 @@ const Rides = () => {
             select: "*", 
         },
     });
+    
+    console.log("rides here", data);
+    
 
     return (
         <List breadcrumb={false}>

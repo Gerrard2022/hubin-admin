@@ -1,4 +1,4 @@
-import { CarTwoTone, DashboardOutlined } from "@ant-design/icons";
+import { CarTwoTone, DashboardOutlined, DollarCircleOutlined } from "@ant-design/icons"; // Added DollarCircleOutlined
 import { FaUserCog } from "react-icons/fa";
 import { VscOrganization } from "react-icons/vsc";
 
@@ -14,7 +14,7 @@ export const resources: IResourceItem[] = [
         }
     },
     {
-        name:'rides',
+        name: 'rides',
         list: '/rides',
         show: '/rides/:id',
         meta: {
@@ -23,7 +23,7 @@ export const resources: IResourceItem[] = [
         }
     },
     {
-        name:'drivers',
+        name: 'drivers',
         list: '/drivers',
         show: '/drivers/:id',
         edit: '/drivers/edit/:id',
@@ -33,7 +33,7 @@ export const resources: IResourceItem[] = [
         }
     },
     {
-        name:'organizations',
+        name: 'organizations',
         list: '/organizations',
         show: '/organizations/:id',
         create: '/organizations/new',
@@ -41,7 +41,14 @@ export const resources: IResourceItem[] = [
         meta: {
             label: 'Organizations',
             icon: <VscOrganization />
-
         }
     },
-]
+    {
+        name: 'topay',
+        list: '/topay',
+        meta: {
+            label: 'To Pay',
+            icon: <DollarCircleOutlined /> 
+        }
+    }
+];

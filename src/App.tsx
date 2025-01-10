@@ -26,6 +26,7 @@ import Drivers from "./pages/drivers/list";
 import EditDriver from "./pages/drivers/edit";
 import OrganizationList from "./pages/organization";
 import CreateOrganization from "./pages/organization/create";
+import ToPay from "./pages/toPay";
 
 const clerkPublishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -128,6 +129,10 @@ function App() {
                                         <Route
                                             path="/organizations/new"
                                             element={<CreateOrganization />}
+                                        />
+                                        <Route 
+                                            path="/topay" 
+                                            element={<ToPay />} 
                                         />
                                     </Route>
                                 </Routes>
